@@ -1,0 +1,35 @@
+#:kivy 1.0.9
+#:import Svg kivy.graphics.svg.Svg
+
+
+<MainWindow>:
+    orientation: "horizontal"
+    canvas.before:
+        Color:
+            rgba: [0.3, 0.3, 0.3, 1]
+        Rectangle:
+            size: self.size
+            pos: self.pos
+    BoxLayout:
+        size_hint: 0.02, 1
+        canvas.before:
+            Color:
+                rgba: [0.6, 0.6, 0.6, 1]
+            Rectangle:
+                size: self.size
+                pos: self.pos
+        AnchorLayout:
+            anchor_y:"top"
+            ParamsButton:
+                canvas.before:
+                    Color:
+                        rgba: [0.7, 0.7, 0.7, 1]
+                    Rectangle:
+                        size: self.size
+                        pos: self.pos
+                on_press: root.toggle_params()
+    Panel:
+        id: params_panel
+        
+    MainContent:
+        id: main_content
