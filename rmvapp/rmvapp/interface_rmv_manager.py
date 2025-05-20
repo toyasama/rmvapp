@@ -1,4 +1,5 @@
 from abc import ABC, abstractmethod
+import numpy as np
 
 
 class IRmvManager:
@@ -22,7 +23,7 @@ class IRmvManager:
         pass
 
     @abstractmethod
-    def get_image(self):
+    def get_image(self) -> None | np.ndarray:
         """
         Get the image from the RMV Manager.
 

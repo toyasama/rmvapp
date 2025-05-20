@@ -1,0 +1,18 @@
+<LateralBar>:
+    size_hint: 0.02, 1
+    canvas.before:
+        Color:
+            rgba: [0.6, 0.6, 0.6, 1]
+        Rectangle:
+            size: self.size
+            pos: self.pos
+    AnchorLayout:
+        anchor_y:"top"
+        ParamsButton:
+            canvas.before:
+                Color:
+                    rgba: [0.7, 0.7, 0.7, 1]
+                Rectangle:
+                    size: self.size
+                    pos: self.pos
+            on_press: app.main_window.toggle_params()

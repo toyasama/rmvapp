@@ -19,9 +19,11 @@ class MainContent(BoxLayout):
     def updateImage(self, image: np.ndarray):
         if image is None:
             return
-        frame = cv2.cvtColor(image, cv2.COLOR_BGR2RGB)
-        frame = np.flip(frame, 0)
-        height, width, _ = frame.shape
-        texture = Texture.create(size=(width, height))
-        texture.blit_buffer(frame.tobytes(), colorfmt="rgb", bufferfmt="ubyte")
+        if image.ndim == 3 and image.shape[2] == 3:
+            tex = Texture.create(size=(image.shape[1], image.shape[0]), colorfmt="rgb")
+            tex.blit_buffer(image.tobytes(), colorfmt="rgb", bufferfmt="ubyte")
+            tex.flip_vertical()
+            self.ids.video_feed.texture = tex
+
+    def setNoImage(self, texture):
         self.ids.video_feed.texture = texture

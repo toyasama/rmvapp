@@ -1,0 +1,19 @@
+#:kivy 1.0.9
+
+<MainWindow>:
+    orientation: "horizontal"
+    canvas.before:
+        Color:
+            rgba: [0.3, 0.3, 0.3, 1]
+        Rectangle:
+            size: self.size
+            pos: self.pos
+
+    LateralBar:
+        id: lateral_bar
+
+    ParamsDock:
+        id: params_dock
+
+    MainContent:
+        id: main_content

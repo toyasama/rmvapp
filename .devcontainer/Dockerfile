@@ -7,6 +7,7 @@ ENV USE_GSTREAMER=1
 
 RUN apt-get update && \
     apt-get install -y --no-install-recommends \
+    ros-humble-rmw-cyclonedds-cpp \
     python3-pip git build-essential sudo \
     python3-dev libmtdev-dev libgles2-mesa libsdl2-dev \
     libsdl2-image-dev libsdl2-mixer-dev libsdl2-ttf-dev libportmidi-dev ffmpeg \
@@ -41,3 +42,9 @@ RUN sed -i 's/^#force_color_prompt=yes/force_color_prompt=yes/' ~/.bashrc && \
     echo 'PROMPT_COMMAND="history -a; $PROMPT_COMMAND"' >> ~/.bashrc && \
     echo "source /opt/ros/humble/setup.bash" >> ~/.bashrc
 
+
+# Set up ROS2 and Cyclone DDS environment
+COPY config/cyclonedds.xml /etc/cyclonedds.xml
+
+ENV RMW_IMPLEMENTATION=rmw_cyclonedds_cpp
+ENV CYCLONEDDS_URI=/etc/cyclonedds.xml
