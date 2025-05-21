@@ -1,3 +1,4 @@
+
 <ParamsDock>:
     size_hint_x: 0
     width: 0
@@ -5,10 +6,188 @@
     disabled: True
     canvas.before:
         Color:
-            rgba: [0.4, 0.4, 0.4, 1]
+            rgba: [0.0, 0.0, 0.0, 0.8]
         Rectangle:
             size: self.size
             pos: self.pos
-    Label:
-        text: "Paramètres"
-        color: 1, 1, 1, 1
+
+    ScrollView:
+        GridLayout:
+            cols: 1
+            size_hint_y: None
+            height: self.minimum_height  
+            minimum_height: sum(child.height for child in self.children)  
+            spacing: 20
+            
+            # --------------------------- Frames --------------------------- 
+            GroupParameter:
+                text: "Frames"
+                height: root.height * 0.05
+            BoxLayout:
+                size_hint_y: None
+                height: root.height * 0.05
+                spacing: 5
+                CustomLabel:
+                    text: "Main frame"
+                LetterInput:
+                    hint_text: "frame"
+                
+            # --------------------------- Camera --------------------------- 
+            GroupParameter:
+                text: "Camera"
+                height: root.height * 0.05
+            BoxLayout:
+                size_hint_y: None
+                height: root.height * 0.05
+                spacing: 5
+                CustomLabel:
+                    text: "Position"
+                    size_hint_x: 0.4
+                BoxLayout:
+                    spacing: 10
+                    FloatInput:
+                        hint_text: "x"
+                    FloatInput:
+                        hint_text: "y"
+                    FloatInput:
+                        hint_text: "z"
+            
+            BoxLayout:
+                size_hint_y: None
+                height: root.height * 0.05
+                spacing: 5
+                CustomLabel:
+                    text: "Rotation"
+                    size_hint_x: app.title_label_hint_x_size
+                FloatInput:
+                    size_hint_x: app.other_hint_x_size
+                    hint_text: "angle"
+                
+            BoxLayout:
+                size_hint_y: None
+                height: root.height * 0.05
+                spacing: 5
+                CustomLabel:
+                    text: "FOV"
+                    size_hint_x: app.title_label_hint_x_size
+                IntegerInput:
+                    size_hint_x: app.other_hint_x_size
+                    hint_text: "fov"
+                
+            # -------------------------- Transforms ------------------------- 
+            GroupParameter:
+                text: "Transforms"
+                height: root.height * 0.05
+            BoxLayout:
+                size_hint_y: None
+                height: root.height * 0.05
+                spacing: 5
+                CustomLabel:
+                    text: "Display axes"
+                    size_hint_x: app.title_label_hint_x_size
+                CustomSwitch:
+                    id: display_axes_switch
+                    size_hint_x: app.other_hint_x_size
+                    active: False
+            
+            BoxLayout:
+                size_hint_y: None
+                height: root.height * 0.05
+                spacing: 5
+                CustomLabel:
+                    text: "Display connections"
+                    size_hint_x: app.title_label_hint_x_size
+                CustomSwitch:
+                    id: display_connections_switch
+                    size_hint_x: app.other_hint_x_size
+                    active: False
+            
+            BoxLayout:
+                size_hint_y: None
+                height: root.height * 0.05
+                spacing: 5
+                CustomLabel:
+                    text: "Display names"
+                    size_hint_x: app.title_label_hint_x_size
+                CustomSwitch:
+                    id: display_names_switch
+                    active: False
+                    size_hint_x: app.other_hint_x_size
+
+            # ---------------------------- Grid ---------------------------- 
+            GroupParameter:
+                text: "Grid"
+                height: root.height * 0.05
+
+            
+
+            BoxLayout:
+                size_hint_y: None
+                height: root.height * 0.05
+                CustomLabel:
+                    text: "Display"
+                    size_hint_x: app.title_label_hint_x_size
+
+                CustomSwitch:
+                    size_hint_x: app.other_hint_x_size
+                    active: False
+
+            BoxLayout:
+                size_hint_y: None
+                height: root.height * 0.05
+                CustomLabel:
+                    text: "size"
+                    size_hint_x: app.title_label_hint_x_size
+                FloatInput:
+                    size_hint_x: app.other_hint_x_size
+                    hint_text: "0.1"
+            
+            BoxLayout:
+                size_hint_y: None
+                height: root.height * 0.05
+                CustomLabel:
+                    text: "color"
+                    size_hint_x: 0.4
+                BoxLayout:
+                    spacing: 10
+                    IntegerInput:
+                        hint_text: "r"
+                    IntegerInput:
+                        hint_text: "g"
+                    IntegerInput:
+                        hint_text: "b"
+            
+            # ---------------------------- Image --------------------------- 
+            GroupParameter:
+                text: "Image"
+                height: root.height * 0.05
+
+            BoxLayout:
+                size_hint_y: None
+                height: root.height * 0.05
+                CustomLabel:
+                    text: "Size"
+                    size_hint_x: 0.4
+
+                BoxLayout:
+                    spacing: 10
+                    IntegerInput:
+                        hint_text: "width"
+                    IntegerInput:
+                        hint_text: "height"
+            
+            BoxLayout:
+                size_hint_y: None
+                height: root.height * 0.05
+                CustomLabel:
+                    text: "color"
+                    size_hint_x: 0.4
+                BoxLayout:
+                    spacing: 10
+                    IntegerInput:
+                        hint_text: "r"
+                    IntegerInput:
+                        hint_text: "g"
+                    IntegerInput:
+                        hint_text: "b"
+            

@@ -5,4 +5,5 @@
         "/opt/ros/humble/local/lib/python3.10/dist-packages",
     ],
     "cmake.ignoreCMakeListsMissing": true,
+    "comment-divider.shouldLengthIncludeIndent": true,
 }

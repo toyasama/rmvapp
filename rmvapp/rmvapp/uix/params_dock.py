@@ -1,6 +1,9 @@
 from kivy.uix.boxlayout import BoxLayout
 from kivy.animation import Animation
 from kivy.lang import Builder
+from .custom.input import IntegerInput, FloatInput, LetterInput
+from .custom.label import CustomLabel, GroupParameter
+from .custom.switch import CustomSwitch
 import os
 from pathlib import Path
 

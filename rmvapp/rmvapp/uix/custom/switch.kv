@@ -1,0 +1,21 @@
+
+<CustomSwitch>:
+    active: False
+    canvas:
+        Color:
+            rgba: (0.3, 0.7, 1, 1) if self.active else (0.6, 0.6, 0.6, 1)
+        RoundedRectangle:
+            pos: self.pos
+            size: self.size
+            radius: [self.height / 2]
+
+        Color:
+            rgba: 1, 1, 1, 1
+        Ellipse:
+            size: (self.height - 6, self.height - 6)
+            pos: (self.x + self.width - self.height + 3, self.y + 3) if self.active else (self.x + 3, self.y + 3)
+
+
+    canvas.before:
+        Color:
+            rgba: 0, 0, 0, 0 

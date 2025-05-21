@@ -27,6 +27,11 @@ class RmvApp(App):
         path = dir_path / "images" / "no_image.png"
         self._no_image_texture = CoreImage(str(path)).texture
         self.last_received_image_time = None
+        self.setUixParams()
+
+    def setUixParams(self):
+        self.title_label_hint_x_size = 0.7
+        self.other_hint_x_size = 0.3
 
     def build(self):
         self.main_window = MainWindow()
@@ -48,8 +53,5 @@ class RmvApp(App):
                 return
             self.main_window.setNoImage(self._no_image_texture)
 
-
-if __name__ == "__main__":
-    rclpy.init()
-    node = rclpy.create_node("rmv_app")
-    RmvApp(node).run()
+    def on_stop(self):
+        print("Kivy is closing, cleaning up...")
