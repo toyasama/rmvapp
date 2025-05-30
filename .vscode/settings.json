@@ -3,7 +3,9 @@
         "/usr/local/lib/python3.10/dist-packages",
         "/opt/ros/humble/lib/python3.10/site-packages",
         "/opt/ros/humble/local/lib/python3.10/dist-packages",
+        "/home/devuser/workspace/install/rmv_msgs/local/lib/python3.10/dist-packages",
+        "/home/devuser/workspace/build/rmv_library",
+        "/home/devuser/workspace/install/rmv_library/lib/python3.10/site-packages",
     ],
-    "cmake.ignoreCMakeListsMissing": true,
     "comment-divider.shouldLengthIncludeIndent": true,
 }

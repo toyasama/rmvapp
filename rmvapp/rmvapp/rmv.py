@@ -1,12 +1,8 @@
 from kivy.app import App
-from kivy.uix.button import Button
-from kivy.uix.boxlayout import BoxLayout
 from .uix.main_window import MainWindow
 from .rmv_manager import RmvManager
 from kivy.core.window import Window
 from kivy.clock import Clock
-import rclpy
-from matplotlib.image import imread
 import time
 from pathlib import Path
 from kivy.core.image import Image as CoreImage
@@ -52,6 +48,9 @@ class RmvApp(App):
             ):
                 return
             self.main_window.setNoImage(self._no_image_texture)
+
+    def get_params(self) -> dict:
+        return self.rmv_manager.get_params()
 
     def on_stop(self):
         print("Kivy is closing, cleaning up...")

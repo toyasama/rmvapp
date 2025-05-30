@@ -18,17 +18,30 @@ class CustomSwitch(Widget):
         super().__init__(**kwargs)
         self.bind(
             pos=self.update_canvas,
-            size=self.update_canvas,
-            active=self.animate_knob,
+            size=self.on_size_change,
             knob_pos=self.update_canvas,
         )
+        self.bind(active=self.on_active)
+        self.update_knob_position()
+
+    def on_size_change(self, *args):
+        self.update_knob_position()
         self.update_canvas()
+
+    def update_knob_position(self):
+        if self.width > 0 and self.height > 0:
+            self.knob_pos = self.width - self.height if self.active else 0
+        else:
+            self.knob_pos = 0
 
     def on_touch_down(self, touch):
         if self.collide_point(*touch.pos):
             self.active = not self.active
             return True
         return super().on_touch_down(touch)
+
+    def on_active(self, instance, value):
+        self.animate_knob()
 
     def animate_knob(self, *args):
         end_pos = self.width - self.height if self.active else 0

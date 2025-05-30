@@ -30,6 +30,7 @@
                 CustomLabel:
                     text: "Main frame"
                 LetterInput:
+                    id: main_frame_input
                     hint_text: "frame"
                 
             # --------------------------- Camera --------------------------- 
@@ -46,10 +47,13 @@
                 BoxLayout:
                     spacing: 10
                     FloatInput:
+                        id: camera_position_x
                         hint_text: "x"
                     FloatInput:
+                        id: camera_position_y
                         hint_text: "y"
                     FloatInput:
+                        id: camera_position_z
                         hint_text: "z"
             
             BoxLayout:
@@ -60,6 +64,7 @@
                     text: "Rotation"
                     size_hint_x: app.title_label_hint_x_size
                 FloatInput:
+                    id: camera_rotation_angle
                     size_hint_x: app.other_hint_x_size
                     hint_text: "angle"
                 
@@ -71,6 +76,7 @@
                     text: "FOV"
                     size_hint_x: app.title_label_hint_x_size
                 IntegerInput:
+                    id: camera_fov
                     size_hint_x: app.other_hint_x_size
                     hint_text: "fov"
                 
@@ -129,6 +135,7 @@
                     size_hint_x: app.title_label_hint_x_size
 
                 CustomSwitch:
+                    id: display_grid_switch
                     size_hint_x: app.other_hint_x_size
                     active: False
 
